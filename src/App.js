@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
-import './DrawingTool.css';
+import './css/App.css';
+import './css/PixelBoard.css';
 import BoardManager from './components/BoardManager.js';
 
 class App extends Component {

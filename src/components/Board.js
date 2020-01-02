@@ -2,18 +2,18 @@ import React from 'react';
 import Pixel from './Pixel';
 
 class Board extends React.Component {
-  renderPixels(i) {
-    return <Pixel matrix={i} onClick={() => this.props.onClick(i)}/>;
+  renderPixels(pixel, row, column) {
+    return <Pixel value={pixel} row={row} column={column} onClick={(row, column) => this.props.onClick(row, column)}/>;
   }
 
   render() {
     return (
       <div>
         <div className="board-row">
-          {this.props.matrix.map((row, i) => (
-            <div key={i}>
-              {row.map((col, j) => (
-                <button key={j}>{col}</button>
+          {this.props.matrix.map((row, row_index) => (
+            <div key={row_index}>
+              {row.map((value, col_index) => (
+                  this.renderPixels(value,row_index,col_index)
               ))}
             </div>
           ))}
