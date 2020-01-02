@@ -12,8 +12,8 @@ class BoardManager extends React.Component {
     super();
     let matrix = this.createEmptyMatrix();
     this.state = {
-      drawn: false,
-      pixelMatrix: matrix
+      pixelMatrix: matrix,
+      isDown: false
     }
   };
 
@@ -42,6 +42,7 @@ class BoardManager extends React.Component {
   }
 
   drawing(row,column){
+    if (!this.state.isDown){return}
     //change pixel value to 1
     const newMatrix = this.state.pixelMatrix;
     newMatrix[row][column] = 1;
@@ -50,9 +51,18 @@ class BoardManager extends React.Component {
       pixelMatrix: newMatrix
     })
   }
+  toggleHold(e){
+    let newDown = !this.state.isDown
+    this.setState({
+        isDown: newDown
+    })
+  }
 
   renderBoard(){
-    return <Board matrix={this.state.pixelMatrix} onClick={(row,column)=>this.drawing(row,column)}/>
+    return <Board matrix={this.state.pixelMatrix}
+    onMouseEnter={(row,column)=>this.drawing(row,column)}
+    onMouseDown={e => this.toggleHold(e)}
+    onMouseUp={e => this.toggleHold(e)}/>
   }
 
   render(){

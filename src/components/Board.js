@@ -3,7 +3,10 @@ import Pixel from './Pixel';
 
 class Board extends React.Component {
   renderPixels(pixel, row, column) {
-    return <Pixel value={pixel} row={row} column={column} onClick={(row, column) => this.props.onClick(row, column)}/>;
+    return <Pixel value={pixel} row={row} column={column}
+    onMouseEnter={(row, column) => this.props.onMouseEnter(row, column)}
+    onMouseDown={e => this.props.onMouseDown(e)}
+    onMouseUp={e => this.props.onMouseUp(e)}/>;
   }
 
   render() {

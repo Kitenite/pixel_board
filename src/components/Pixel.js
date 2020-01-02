@@ -9,7 +9,10 @@ class Pixel extends React.Component {
 	}
 	render(){
 		return (
-			<button className="pixel" style={{background:this.setColor(this.props.value)}} onMouseEnter={() => this.props.onClick(this.props.row,this.props.column)}>
+			<button className="pixel" style={{background:this.setColor(this.props.value)}}
+			onMouseEnter={() => this.props.onMouseEnter(this.props.row,this.props.column)}
+			onMouseDown={e => this.props.onMouseDown(e)}
+			onMouseUp={e => this.props.onMouseUp(e)}>
 			</button>
 		)
 	}
