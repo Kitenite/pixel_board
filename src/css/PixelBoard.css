@@ -1,14 +1,19 @@
 .pixel {
   background: #FFFFFF;
-  border: 0.5px solid #2222;
+  border: 0px solid #2222;
   float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 20px;
-  height: 20px;
+  width: 5px;
+  height: 5px;
+}
+
+.board {
+  padding: 10px;
+  background: #2222;
+  border: 5px solid #2222;
+  overflow: hidden;
 }

@@ -12,7 +12,7 @@ class Board extends React.Component {
   render() {
     return (
       <div>
-        <div className="board-row">
+        <div>
           {this.props.matrix.map((row, row_index) => (
             <div key={row_index}>
               {row.map((value, col_index) => (
